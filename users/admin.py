@@ -16,3 +16,5 @@ class UserModelAdmin(admin.ModelAdmin):
         "username",
         "email",
     ]
+
+    prepopulated_fields = {"slug": ("username",)}

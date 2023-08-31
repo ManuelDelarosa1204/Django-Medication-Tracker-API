@@ -11,3 +11,9 @@ class UserListCreateView(generics.ListCreateAPIView):
         user = serializer.save()
         user.set_password(user.password)
         user.save()
+
+
+class UserRetrieveDestroyView(generics.RetrieveDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    lookup_field = "slug"  # Lookup the user based on user `slug` field
